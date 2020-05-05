@@ -4,8 +4,16 @@ import { Component } from '@angular/core';
   selector: 'app-server',
   templateUrl: './server.component.html'
 })
-export class ServerComponent
-{
+export class ServerComponent {
   serverId: number = 10;
-  serverStatus: string = 'UP';
+  serverStatus: string = 'offline';
+
+  constructor() {
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
+  }
+
+  getColor()
+  {
+    return this.serverStatus === 'online' ? 'green' : 'red';
+  }
 }

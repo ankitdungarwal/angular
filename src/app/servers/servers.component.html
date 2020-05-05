@@ -2,4 +2,5 @@
 <input type="text" class="form-control" [(ngModel)]="serverName">
 <button class="btn btn-primary" [disabled]="!allowNewServer"
 (click)="onClickButton()">Add Server</button>
-<p>{{ serverCreationStatus }}</p>
+<p *ngIf="serverCreated" [ngStyle]="{backgroundColor:style()}">{{ serverCreationStatus }}</p>
+<app-server *ngFor="let server of servers"></app-server>
